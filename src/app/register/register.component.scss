@@ -1,0 +1,102 @@
+.formContainer {
+    position: relative;
+    background-color: black;
+    padding: 50px;
+    border: 1px solid white;
+
+    .close {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: -15px;
+        right: -15px;
+        cursor: pointer;
+        transition: 0.3s;
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media (max-width: 576px) {
+            top: 10px;
+            right: 10px;
+        }
+
+        &:hover {
+            opacity: .8;
+            scale: 1.5;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .title {
+        display: block;
+        color: white;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 1px solid white;
+        margin-top: 0;
+    }
+
+    .dati-accesso {
+        color: white;
+        text-align: center;
+        width: 100%;
+
+
+        .email {
+            border: 1px solid white;
+            margin: 25px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            
+            p {
+                min-width: 75px;
+            }
+            
+            /* Small devices (landscape phones, 576px and up) */
+            @media (max-width: 576px) {
+            flex-direction: column;
+            }
+
+            input {
+                margin: 5px
+            }
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            font-size: 10px;
+        }
+
+        .password {
+            border: 1px solid white;
+            margin: 25px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            
+            p {
+                min-width: 75px;
+            }
+            
+            /* Small devices (landscape phones, 576px and up) */
+            @media (max-width: 576px) {
+            flex-direction: column;
+            }
+
+            input {
+                margin: 5px
+            }
+
+            img {
+                height: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}

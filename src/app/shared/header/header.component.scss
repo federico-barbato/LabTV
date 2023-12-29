@@ -1,0 +1,91 @@
+h1 {
+    position: relative;
+    display: block;
+    color: white;
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .user {
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button {
+        color: white;
+        background-color: black;
+        border: 1px solid white;
+        height: 20px;
+        margin-left: auto;
+        margin: 5px;
+        user-select: none;
+        text-decoration: none;
+        font-size: 15px;
+        padding: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+
+        &:hover {
+            background-color: grey;
+        }
+
+        /* Small devices (landscape phones, 576px and up) */
+        @media (max-width: 576px) {
+            display: block;
+        }
+    }
+}
+
+.loghi {
+    margin-left: auto;
+    display: flex;
+
+    img {
+        height: 30px;
+        width: 30px;
+        margin: 5px;
+
+        &:hover {
+            transition: .5s;
+            scale: 1.5;
+        }
+    }
+
+    /* Small devices (landscape phones, 576px and up) */
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
+}
+
+.login-container,
+.register-container,
+.contatti-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

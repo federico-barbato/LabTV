@@ -1,0 +1,52 @@
+<div class="scheda" *ngIf="loaded">
+    <!-- COMPONENTE HEADER  -->
+    <app-header></app-header>
+
+    <!-- CONTENITORE TITOLO FILM -->
+    <h1 class="scheda-title">
+        <!-- TITOLO FILM PROVENIENTE DA API ESTERNA -->
+        {{film.title}}
+    </h1>
+
+    <!-- CONTENITORE ELEMENTI COMPONENTE -->
+    <div class="container">
+        <!-- IMMAGINE DI COPERTINA FILM PROVENIENTE DA API ESTERNA -->
+        <div class="scheda-locandina">
+            <img src="https://image.tmdb.org/t/p/w400{{film.poster_path}}" alt="">
+        </div>
+
+        <!-- DESCRIZIONE TRAMA FILM PROVENIENTE DA API ESTERNA -->
+        <div class="container-descrizione">
+            <div class="scheda-descrizione ">
+                <div class="trama">
+                    <p>Trama:</p>
+                    <p>{{film.overview || 'NON DISPONIBILE'}}</p>
+                </div>
+                <!-- GENERI DI APPARRTENENZA FILM  -->
+                <div class="genere">
+                    <p>Genere:</p>
+                    <a *ngFor="let genere of film.genres">#{{genere.name}}</a>
+                </div>
+                <!-- DATA RILASCIO FILM -->
+                <div class="rilasciato">
+                    <p>Anno di pubblicazione: {{film.release_date | date : "dd/MM/y"}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- CAROSELLO DI FILM SIMILI INDIVIDUATI TRAMITE I GENERI DI APPARTANENZA  -->
+        <div class="scheda-films">
+
+            <app-carosello [elementi]="similarFilms" [heightLimit]="true"></app-carosello>
+
+        </div>
+
+        <!-- TRAILER DEL FILM PROVENINTE DA YOUTUBE  -->
+        <iframe *ngIf="video"
+            [src]="sanitizer.bypassSecurityTrustResourceUrl('http://www.youtube.com/embed/' + video.key + '?autoplay=1&mute=1')"
+            frameborder="0">
+        </iframe>
+
+    </div>
+</div>

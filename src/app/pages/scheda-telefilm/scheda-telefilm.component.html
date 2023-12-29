@@ -1,0 +1,52 @@
+<div class="scheda" *ngIf="loaded">
+    <!-- COMPONENTE HEADER  -->
+    <app-header></app-header>
+
+    <!-- CONTENITORE TITOLO TELEFILM -->
+    <h1 class="scheda-title">
+        <!-- TITOLO FILM PROVENIENTE DA API ESTERNA -->
+        {{telefilm.name}}
+    </h1>
+
+    <!-- CONTENITORE ELEMENTI COMPONENTE -->
+    <div class="container">
+        <!-- IMMAGINE DI COPERTINA TELEFILM PROVENIENTE DA API ESTERNA -->
+        <div class="scheda-locandina">
+            <img src="https://image.tmdb.org/t/p/w400{{telefilm.poster_path}}" alt="">
+        </div>
+
+        <!-- DESCRIZIONE TRAMA FILM PROVENIENTE DA API ESTERNA -->
+        <div class="container-descrizione">
+            <div class="scheda-descrizione ">
+                <div class="trama">
+                    <p>Trama:</p>
+                    <p>{{telefilm.overview || 'NON DISPONIBILE'}}</p>
+                </div>
+                <!-- GENERI DI APPARRTENENZA TELEFILM  -->
+                <div class="genere">
+                    <p>Genere:</p>
+                    <a *ngFor="let genere of telefilm.genres">#{{genere.name || 'NON DISPONIBILE'}}</a>
+                </div>
+                <!-- DATA RILASCIO TELEFILM -->
+                <div class="rilasciato">
+                    <p>Anno di pubblicazione: {{(telefilm.release_date | date : "dd/MM/y") || 'NON DISPONIBILE'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- CAROSELLO DI TELEFILM SIMILI INDIVIDUATI TRAMITE I GENERI DI APPARTANENZA  -->
+        <div class="scheda-films">
+
+            <app-carosello tipo="telefilm" [elementi]="similarTelefilms" [heightLimit]="true"></app-carosello>
+
+        </div>
+
+        <!-- TRAILER DEL TELEFILM PROVENINTE DA YOUTUBE  -->
+        <iframe *ngIf="video"
+            [src]="sanitizer.bypassSecurityTrustResourceUrl('http://www.youtube.com/embed/' + video.key + '?autoplay=1&mute=1')"
+            frameborder="0">
+        </iframe>
+
+    </div>
+</div>

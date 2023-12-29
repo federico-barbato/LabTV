@@ -1,0 +1,49 @@
+<div>
+    <h1>
+        <a href="/">LabTV</a>
+        <!-- MOSTRA ICONA UTENTE SOLO SE LOGGATO -->
+        <img *ngIf="authService.logged()" (click)="mostraMenu=!mostraMenu" class="user" src="assets/img/loghi/user.svg" alt="">
+        <!-- MENU A SCOMPARSA CON LINK PER EFFETTUARE IL LOGOUT -->
+        <div class="menu-container" *ngIf="mostraMenu && authService.logged()">
+            <a href="javascript:void(0)" (click)="authService.logout(); mostraMenu=false" >Logout</a>
+        </div>
+    </h1>
+    <div class="header-title">
+        <div>
+            <!-- NAVIGATION MENU -->
+            <a class="button" href="/">HOME/CATALOGO</a>
+            <!-- TASTO PER COMPARSA POPUP PER EFFETTUARE IL LOGIN -->
+            <a *ngIf="!authService.logged()" class="button" href="javascript:void(0)" (click)="mostraLogin=!mostraLogin">LOGIN/REGISTRAZIONE</a>
+            <!-- TASTO PER COMPARSA POPUP PER INDIRIZZI DI CONTATTO -->
+            <a class="button" href="javascript:void(0)" (click)="mostraContatti=!mostraContatti">CONTATTI</a>
+        </div>
+    
+        <div class="loghi">
+            <!-- LOGHI SOCIAL NETWORK CON RELATIVI LINK -->
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="assets/img/loghi/instagram.svg" alt="">
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="assets/img/loghi/facebook.svg" alt="">
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+                <img src="assets/img/loghi/x.svg" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="login-container" *ngIf="mostraLogin">
+    <!-- MODALE COMPONENTE LOGIN -->
+    <app-login (close)="mostraLogin=false" (apriRegister)="apriPopupRegister()"></app-login>
+</div>
+
+<div class="register-container" *ngIf="mostraRegister">
+    <!-- MODALE COMPONENTE REGISTER -->
+    <app-register (close)="mostraRegister=false" (tornaLogin)="apriPopupLogin()"></app-register>
+</div>
+
+<div class="contatti-container" *ngIf="mostraContatti">
+    <!-- MODALE COMPONENTE CONTATTI -->
+    <app-contatti (close)="mostraContatti=false"></app-contatti>
+</div>

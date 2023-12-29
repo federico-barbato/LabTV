@@ -1,0 +1,27 @@
+.swiper-container {
+    height: 300px;
+    object-fit: contain;
+
+    // display: flex;s
+    .swiper {
+        a {
+            height: 100%;
+        }
+
+        img {
+            max-height: 300px
+        }
+    }
+
+    &.heightLimit {
+        .swiper {
+            img {
+                max-height: 150px;
+            }
+        }
+    }
+
+    .slide {
+        width: auto !important;
+    }
+}

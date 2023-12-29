@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="container">
+        <!-- TITOLO FILM -->
+        <div [ngSwitch]="tipo" class="titolo-elemento">
+            <!-- ELEMENTO PRESO DA API ESTERNA -->
+            <a *ngSwitchCase="'film'" href="scheda/{{elemento.id}}">{{elemento.title}}</a>
+            <a *ngSwitchCase="'telefilm'" href="schedaTelefilm/{{elemento.id}}">{{elemento.name}}</a>
+        </div>
+        <!-- LOCANDINA FILM -->
+        <div [ngSwitch]="tipo" class="img-contain">
+            <!-- ELEMENTO PRESO DA API ESTERNA -->
+            <a *ngSwitchCase="'film'" href="scheda/{{elemento.id}}"><img src="https://image.tmdb.org/t/p/w200{{elemento.poster_path}}" alt="copertina"></a>
+            <a *ngSwitchCase="'telefilm'" href="schedaTelefilm/{{elemento.id}}"><img src="https://image.tmdb.org/t/p/w200{{elemento.poster_path}}" alt="copertina"></a>
+        </div>
+    </div>
+</div>

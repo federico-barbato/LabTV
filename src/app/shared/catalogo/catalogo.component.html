@@ -1,0 +1,18 @@
+<div *ngIf="films.length>0" class="container-grid">
+    <div class="title">
+        <div>
+            <a [class.active]="tipo==='film'" (click)="cambioTipo.emit('film')">FILM</a>
+            <a [class.active]="tipo==='telefilm'"(click)="cambioTipo.emit('telefilm')" >TELEFILM</a>
+        </div>
+
+        <!-- RICHIAMA IL COMPONENTE PER LA RICERCA -->
+        <div class="search">
+            <app-search></app-search>
+        </div>
+    </div>
+
+    <!-- RICHIAMA IL COMPOMENTE CARD MOSTRA IL COMPOMENTE CON LE INFORMAZIONI BASE -->
+    <div class="container-locandine">
+        <app-card [elemento]="film" [tipo]="tipo"  *ngFor="let film of films"></app-card>
+    </div>
+</div>

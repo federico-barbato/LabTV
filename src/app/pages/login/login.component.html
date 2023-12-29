@@ -1,0 +1,39 @@
+<div class="formContainer">
+    <!-- ICONA PER CHIUSURA MODULO -->
+    <div class="close" (click)="close.emit()">
+        <img src="assets/img/loghi/close.svg" alt="">
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <h2 class="title">LOGIN</h2>
+
+        <!-- CONTENITORE CAMPI DI INPUT PER ACCESSO  -->
+        <div class="dati-accesso">
+
+            <!-- ELEMENTI PER INSERIMENTO EMAIL -->
+            <div class="email">
+                <p>Email:</p>
+                <input type="text" placeholder="Inserisci la tua email" formControlName="email">
+            </div>
+
+            <!-- ELEMENTI PER INSERIMENTO PASSWORD -->
+            <div class="password">
+                <p>Password:</p>
+                <input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Inserisci la tua password"
+                    formControlName="password">
+                
+                <!-- VISUALIZZAZIONE NASCOSTA O VISTA IN CHIARO PASSWORD -->
+                <div class="showPassword">
+                    <img *ngIf="!showPassword" src="assets/img/loghi/openEye.svg" alt="" (click)="showPassword=true">
+                    <img *ngIf="showPassword" src="assets/img/loghi/closeEye.svg" alt="" (click)="showPassword=false">
+                </div>
+            </div>
+
+            <button>LOGIN</button>
+            <br>
+            <br>
+            <!-- COLLEGAMENTO CON COMPONENTE "REGISTER" PER CREAZIONE NUOVO ACCOUNT -->
+            <a href="javascript:void(0)" (click)="apriRegister.emit()">CREA NUOVO ACCOUNT</a>
+        </div>
+    </form>
+</div>

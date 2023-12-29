@@ -1,0 +1,36 @@
+<div class="formContainer">
+    <!-- ICONA PER CHIUSURA MODULO -->
+    <div class="close" (click)="close.emit()">
+        <img src="assets/img/loghi/close.svg" alt="">
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <h2 class="title">REGISTRAZIONE</h2>
+        <!-- CONTENITORE DATI INPUT PER REGISTRAZIONE NUOVO UTENTE -->
+        <div class="dati-accesso">
+
+            <!-- ELEMENTI PER INSERIMENTO EMAIL -->
+            <div class="email">
+                <p>Email:</p>
+                <input type="text" placeholder="Inserisci la tua email" formControlName="email">
+            </div>
+
+            <!-- ELEMENTI PER INSERIMENTO PASSWORD -->
+            <div class="password">
+                <p>Password:</p>
+                <input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Inserisci la tua password"
+                    formControlName="password">
+
+                    <!-- MOSTRARE O NASCONDERE PASSWORD CON CAMBIO DI ICONA -->
+                <div style="height: 20px; width: 20px;">
+                    <img *ngIf="!showPassword" src="assets/img/loghi/openEye.svg" alt="" (click)="showPassword=true">
+                    <img *ngIf="showPassword" src="assets/img/loghi/closeEye.svg" alt="" (click)="showPassword=false">
+                </div>
+            </div>
+            <button>REGISTRATI</button>
+            <br>
+            <br>
+            <a href="javascript:void(0)" (click)="tornaLogin.emit()">TORNA A LOGIN</a>
+        </div>
+    </form>
+</div>

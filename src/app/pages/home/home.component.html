@@ -1,0 +1,6 @@
+<!-- COLLEGAMENTO CON COMPONENTE HEADER -->
+<app-header></app-header>
+<!-- COLLEGAMENTO CON COMPONENTE CAROSELLO CHE CONTIENE ULTIMI FILM USCITI AL CINEMA-->
+<app-carosello [elementi]="trendingFilms" [tipo]="tipo"></app-carosello>
+<!-- COLLEGAMENTO CON COMPONENTE CATALOGO CHE CONTIENE I FILM DI TENDENZA -->
+<app-catalogo (cambioTipo)="cambio($event)" [tipo]="tipo" [films]="films"></app-catalogo>

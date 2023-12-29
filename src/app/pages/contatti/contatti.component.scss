@@ -1,0 +1,76 @@
+// CONTENITORE PADRE DEL COMPONENTE 
+.formContainer {
+    position: relative;
+    background-color: black;
+    padding: 50px;
+    border: 1px solid white;
+
+    // STILE TASTO DI CHIUSURA POPUP
+    .close {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: -15px;
+        right: -15px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        // ADATTAMENTO VISTA PAGINA PER RESPONSIVE
+        /* Small devices (landscape phones, 576px and up) */
+        @media (max-width: 576px) {
+            top: 10px;
+            right: 10px;
+        }
+
+        // PASSAGGIO CON MOUSE SOPRA ALL'ELEMENTO
+        &:hover {
+            opacity: .8;
+            scale: 1.5;
+        }
+
+        // DIMENSIONE IMMAGINE X CHIUSURA 
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    // TITOLO INIZIALE POPUP CONTATTI
+    .title {
+        display: block;
+        color: white;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 1px solid white;
+        margin-top: 0;
+    }
+
+    // CONTENITORE CONTATTI
+    .contatti {
+        color: white;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        display: block;
+
+        // TITOLI INFORMAZIONI
+        h3 {
+            border: 1px solid white;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        // TESTI INFORMAZIONI 
+        p {
+            min-width: 75px;
+            display: block;
+        }
+
+        // ADATTAMENTO PAGINA RESPONSIVE 
+        /* Small devices (landscape phones, 576px and up) */
+        @media (max-width: 576px) {
+            flex-direction: column;
+        }
+    }
+}

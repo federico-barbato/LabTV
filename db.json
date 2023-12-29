@@ -1,0 +1,29 @@
+{
+  "utenti": [
+    {
+      "id": 1,
+      "email": "test@test.it",
+      "password": "1234"
+    },
+    {
+      "email": "a@a.it",
+      "password": "562145",
+      "id": 2
+    },
+    {
+      "email": "b@b.it",
+      "password": "1234",
+      "id": 3
+    },
+    {
+      "email": "c@c.it",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "email": "federico@outlook.it",
+      "password": "federico95",
+      "id": 5
+    }
+  ]
+}
